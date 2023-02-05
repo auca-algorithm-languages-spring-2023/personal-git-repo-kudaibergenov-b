@@ -8,8 +8,10 @@ int main()
 {
    string command;
    stack<string> names;
+
    string t;
    getline(cin, t);
+
    int n = stoi(t);
 
    while (n--)

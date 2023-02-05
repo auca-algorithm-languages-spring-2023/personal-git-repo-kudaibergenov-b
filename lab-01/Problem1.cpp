@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
     string text;
+
     while (getline(cin, text))
     {
         list<char> beijuText;
