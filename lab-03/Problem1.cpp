@@ -7,27 +7,30 @@ using namespace std;
 multiset<int>::iterator cur;
 multiset<int> nums;
 int k, m, n, index;
+string blank;
 vector<int> addVec(30001), getVec(30001);
 
 int main()
 {
     cin >> k;
 
-    while (k--)
+    for (int t = 0; t < k; t++)
     {
-        index = 0;
+        cout << blank;
+        blank = "\n";
 
-        cout << endl;
         cin >> m >> n;
 
-        for (int i = 0; i < m; i++)
+        index = 0;
+
+        for (int a = 0; a < m; a++)
         {
-            cin >> addVec[i];
+            cin >> addVec[a];
         }
 
-        for (int i = 0; i < n; i++)
+        for (int g = 0; g < n; g++)
         {
-            cin >> getVec[i];
+            cin >> getVec[g];
         }
 
         nums.insert(addVec[0]);
@@ -38,23 +41,23 @@ int main()
             while (i == getVec[index] && index < n)
             {
                 cout << *cur << endl;
-                ++cur;
-                ++index;
+                cur++;
+                index++;
             }
 
             nums.insert(addVec[i]);
 
-            if (cur == end(nums) || addVec[i] < *cur)
+            if (*cur > addVec[i] || cur == end(nums))
             {
-                --cur;
+                cur--;
             }
         }
 
-        while (getVec[index] == m && index < n)
+        while (m == getVec[index] && index < n)
         {
             cout << *cur << endl;
-            ++cur;
-            ++index;
+            cur++;
+            index++;
         }
 
         nums.clear();
