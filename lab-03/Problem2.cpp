@@ -4,9 +4,9 @@
 
 using namespace std;
 
-vector<string> first(1501), second(1501);
+string word, concatenation;
+vector<string> words;
 set<string> newLanguage;
-string concatenation;
 
 int main()
 {
@@ -15,29 +15,30 @@ int main()
 
     for (int x = 1; x <= t; x++)
     {
+        cout << "Case " << x << ": ";
+
         int m, n;
         cin >> m >> n;
+        getline(cin, word);
 
         for (int i = 0; i < m; i++)
         {
-            cin >> first[i];
+            getline(cin, word);
+            words.push_back(word);
         }
 
         for (int i = 0; i < n; i++)
         {
-            cin >> second[i];
-        }
-
-        for (int i = 0; i < m; i++)
-        {
-            for (int j = 0; j < n; j++)
+            getline(cin, word);
+            for (int j = 0; j < m; j++)
             {
-                concatenation = first[i] + second[j];
-                newLanguage.insert(concatenation);
+                concatenation = words[j] + word;
+                newLanguage.insert( concatenation);
             }
         }
 
-        cout << "Case " << x << ": " << newLanguage.size() << endl;
-        newLanguage.clear();
+        cout << newLanguage.size() << endl;
+        words = vector<string>();
+        newLanguage = set<string>();
     }
 }
