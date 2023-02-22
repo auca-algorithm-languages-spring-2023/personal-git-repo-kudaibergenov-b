@@ -5,8 +5,6 @@ using namespace std;
 
 int t;
 string line;
-list<char> final;
-auto it = begin(final);
 
 int main()
 {
@@ -15,6 +13,9 @@ int main()
 
     for (int i = 0; i < t; i++)
     {
+        list<char> final;
+        auto it = begin(final);
+
         getline(cin, line);
 
         for (auto letter : line)
@@ -27,9 +28,12 @@ int main()
             {
                 it = end(final);
             }
-            else if (letter == '<' && it != begin(final))
+            else if (letter == '<')
             {
-                it = final.erase(--it);
+                if (it != begin(final))
+                {
+                    it = final.erase(--it);
+                }
             }
             else
             {
@@ -43,8 +47,6 @@ int main()
             cout << c;
         }
 
-        it = begin(final);
-        final.clear();
         cout << '\n';
     }
 }
