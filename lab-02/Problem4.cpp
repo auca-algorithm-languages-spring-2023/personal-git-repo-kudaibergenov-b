@@ -25,6 +25,11 @@ int main()
 
         for (int team = 0; team < nTeams; team++)
         {
+            while (!tQueue[team].empty())
+            {
+                tQueue[team].pop();
+            }
+
             cin >> nElements;
 
             for (int i = 0; i < nElements; i++)
