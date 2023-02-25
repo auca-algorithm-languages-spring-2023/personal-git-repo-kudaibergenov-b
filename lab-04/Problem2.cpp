@@ -16,7 +16,7 @@ int main()
         }
 
         multiset<int> bills;
-        int result = 0;
+        long long result = 0;
 
         for (int day = 0; day < n; day++)
         {
